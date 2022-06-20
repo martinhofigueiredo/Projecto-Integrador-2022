@@ -27,6 +27,7 @@ RUN apt-get install -y graphviz graphviz-dev
 RUN pip3 install pygraphviz
 
 # Create Catkin workspace with TurtleBot3 package and behavior tree source
+RUN mkdir -p /bluerov_ws/src
 # RUN mkdir -p /turtlebot3_ws/src \
 #  && cd /turtlebot3_ws/src \
 #  && source /opt/ros/noetic/setup.bash \
@@ -40,10 +41,10 @@ RUN pip3 install pygraphviz
 
 # Build the base Catkin workspace
 RUN pip3 install osrf-pycommon
-RUN cd /turtlebot3_ws \
- && source /opt/ros/noetic/setup.bash \
- && rosdep install -y --from-paths src --ignore-src \
- && catkin build -j4
+#RUN cd /turtlebot3_ws \
+# && source /opt/ros/noetic/setup.bash \
+# && rosdep install -y --from-paths src --ignore-src \
+# && catkin build -j4
 
 # Remove display warnings
 RUN mkdir /tmp/runtime-root
@@ -51,6 +52,6 @@ ENV XDG_RUNTIME_DIR "/tmp/runtime-root"
 ENV NO_AT_BRIDGE 1
 
 # Set up the work directory and entrypoint
-WORKDIR /turtlebot3_ws
+WORKDIR /bluerov_ws
 COPY ./docker/entrypoint.sh /
 ENTRYPOINT [ "/entrypoint.sh" ]
