@@ -22,7 +22,7 @@ IMAGE_NAME =bluerov
 CORE_DOCKERFILE = ${PWD}/docker/nvidia_ros.Dockerfile
 BASE_DOCKERFILE = ${PWD}/docker/br_base.Dockerfile
 OVERLAY_DOCKERFILE = ${PWD}/docker/br_overlay.Dockerfile
-TOPSIDE_DOCKERFILE = ${PWD}/docker/topside.Dockerfile
+TOPSIDE_DOCKERFILE = ${PWD}/docker/topside/topside.Dockerfile
 # Set Docker volumes and environment variables
 DOCKER_VOLUMES = \
 	--volume="${PWD}/br_autonomy":"/overlay_ws/src/br_autonomy":rw \
@@ -53,8 +53,13 @@ build-base: build-core
 
 # Build the overlay image (depends on base image build)
 .PHONY: build
+build-topside:
+	@docker build -f ${TOPSIDE_DOCKERFILE} -t ${IMAGE_NAME}_topside .
+
+.PHONY: build
 build: build-base
 	@docker build -f ${OVERLAY_DOCKERFILE} -t ${IMAGE_NAME}_overlay .
+
 
 # Kill any running Docker containers
 .PHONY: kill

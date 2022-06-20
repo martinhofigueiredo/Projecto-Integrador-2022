@@ -60,14 +60,19 @@ graph BT
 	end
 
 ```
-# Docker C
+# Docker Setup
+
+Following [ref$^1$](https://roboticseabass.com/2021/04/21/docker-and-ros/), our working enviroment will be made of the following docker images:
+- `nvidia_ros` 
 
 
 
 
-|Refs|
-|-|
-|[Docker And ROS](https://roboticseabass.com/2021/04/21/docker-and-ros/)|
-|[ROS](https://ros.org)|
 
 
+| |Refs|
+|-|-|
+|1|[Docker And ROS](https://roboticseabass.com/2021/04/21/docker-and-ros/)|
+|2|[ROS](https://ros.org)|
+|3|[ROS and Pixhawk](https://docs.px4.io/v1.12/en/robotics/)|
+|4|[3d MAPs from sensor data](https://docs.px4.io/v1.12/en/simulation/gazebo_octomap.html)|
