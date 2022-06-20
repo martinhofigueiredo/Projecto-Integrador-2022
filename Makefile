@@ -19,10 +19,10 @@ BT_TYPE ?= queue        # Behavior tree type (naive | queue)
 
 # Docker variables
 IMAGE_NAME =bluerov
-CORE_DOCKERFILE = ${PWD}/docker/nvidia_ros
-BASE_DOCKERFILE = ${PWD}/docker/br_base
-OVERLAY_DOCKERFILE = ${PWD}/docker/br_overlay
-TOPSIDE_DOCKERFILE = ${PWD}/docker/topside
+CORE_DOCKERFILE = ${PWD}/docker/nvidia_ros.Dockerfile
+BASE_DOCKERFILE = ${PWD}/docker/br_base.Dockerfile
+OVERLAY_DOCKERFILE = ${PWD}/docker/br_overlay.Dockerfile
+TOPSIDE_DOCKERFILE = ${PWD}/docker/topside.Dockerfile
 # Set Docker volumes and environment variables
 DOCKER_VOLUMES = \
 	--volume="${PWD}/br_autonomy":"/overlay_ws/src/br_autonomy":rw \

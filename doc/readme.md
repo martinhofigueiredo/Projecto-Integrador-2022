@@ -5,6 +5,7 @@ Date:     2022-06-16
 ---
 # Notas
 
+
 Para Facilititar a distribuição de informação recebida do ROV, a arquitectura que escolhemos usar, baseia-se num modelo de _publisher-subscriber_ do ROS o em que o topside computer recebe os dados atraves do cabo ethernet fisico ligado ao ROV. Esta comunicação é feita atraves do protocolo MAVLINK. Visto que tencionamos processar estes dados de forma paralela e usar as bibliotecas do ROS, o primeiro passo sera ingerir os dados todos do mavlink e publicar los na DB do ROS. isto sera feito com a biblioteca mavros.
 
 
@@ -59,7 +60,14 @@ graph BT
 	end
 
 ```
+# Docker C
+
+
+
+
 |Refs|
 |-|
 |[Docker And ROS](https://roboticseabass.com/2021/04/21/docker-and-ros/)|
 |[ROS](https://ros.org)|
+
+
