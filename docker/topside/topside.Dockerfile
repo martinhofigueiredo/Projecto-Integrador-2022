@@ -10,16 +10,16 @@ RUN chmod +x install_geographiclib_datasets.sh
 RUN ./install_geographiclib_datasets.sh
 
 # Fix the broken apm_config.yaml
-COPY topside/apm_config.yaml /opt/ros/kinetic/share/mavros/launch/apm_config.yaml
+COPY apm_config.yaml /opt/ros/kinetic/share/mavros/launch/apm_config.yaml
 
 # MAVLink Input
 EXPOSE 5760
 
 # Envs
-ENV FCUURL=tcp://localhost:5760
+ENV FCUURL=tcp://192.168.2.1:5760
 
 # Finally the command
-COPY entrypoint.sh /
+COPY entrypoint_topside.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT /entrypoint.sh ${FCUURL}
 

@@ -1,1 +1,19 @@
 #This compose will combine all the docker images and create the services needed to operate the robot
+version: '3.1'
+services:
+  topside:
+    image: topside:latest
+    networks:
+      topside_net:
+        ipv4_address: 192.168.2.1
+       
+networks:
+  topside_net:
+    driver: macvlan
+    driver_opts:
+      parent: enp4s0
+    ipam:
+      
+      config:
+        - subnet: "192.168.2.0/24"
+          gateway: "192.168.2.2"

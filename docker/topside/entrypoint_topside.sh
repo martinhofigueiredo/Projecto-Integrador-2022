@@ -1,6 +1,6 @@
 #!/bin/bash
-
-FCUURL=$1
+echo "TOPSIDE \n"
+#FCUURL=$1
 
 source /opt/ros/kinetic/setup.bash
 roscd mavros

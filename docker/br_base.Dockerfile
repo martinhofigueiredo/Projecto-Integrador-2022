@@ -19,8 +19,8 @@ RUN apt-get install -y \
   ros-noetic-gmapping \
   ros-noetic-navigation \
   ros-noetic-py-trees \
-  ros-noetic-py-trees-ros
-
+  ros-noetic-py-trees-ros \
+  
 # Installs for building rqt_py_trees from source
 # (Once bug is fixed, replace with apt-get install ros-noetic-rqt-py-trees)
 RUN apt-get install -y graphviz graphviz-dev
