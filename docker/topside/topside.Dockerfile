@@ -10,7 +10,7 @@ RUN chmod +x install_geographiclib_datasets.sh
 RUN ./install_geographiclib_datasets.sh
 
 # Fix the broken apm_config.yaml
-COPY docker/topside/apm_config.yaml /opt/ros/kinetic/share/mavros/launch/apm_config.yaml
+COPY topside/apm_config.yaml /opt/ros/kinetic/share/mavros/launch/apm_config.yaml
 
 # MAVLink Input
 EXPOSE 5760
