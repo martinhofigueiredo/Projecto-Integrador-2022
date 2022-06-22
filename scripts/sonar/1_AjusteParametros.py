@@ -13,8 +13,10 @@ import time
 from argparse import ArgumentParser
 #from pymavlink import mavutil
 import csv
+import os
 
 
+open_mode = os.O_CREAT | os.O_RDWR | os.O_TRUNC
 # Poderia ser preciso se quiser fazer a cena de percorrer sozinho a piscina
 #master = mavutil.mavlink_connection()
 
@@ -142,12 +144,12 @@ def set(p): #fazer a filtragem para que apenas sejam aceites valores dentro da g
 
     if(mode1 == 'NR SAMPLES'):
         print("Novo nr de amostras:")
-        samples = input()
+        samples = int (input())
         p.set_number_of_samples(samples)
 
     if(mode1 == 'FREQUENCIA'):
         print("Nova freq:")
-        freq = input()
+        freq = int (input())
         p.set_transmit_frequency(freq)
         
     if(mode1 == 'DUR TRANS'):
@@ -170,7 +172,7 @@ def get(p): #TESTAR 0,8 E 9 E 0,9
     mode = input()
     mode3 = mode.upper()
     
-    f = open('teste.csv', 'w')
+    f = os.open('teste.csv', open_mode)
     writer = csv.writer(f)
 
     if(mode3 == '0,9 DEG'):
