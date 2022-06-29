@@ -16,3 +16,5 @@ DOCKER_ARGS=${DOCKER_VOLUMES}" "${DOCKER_ENV_VARS}
 
 # Run the command
 docker run -it --net=docker_topside_net $DOCKER_ARGS $1 bash -c "$2"
+
+#./run_docker.sh topside "./QGroundControl.AppImage --appimage-extract-and-run"  

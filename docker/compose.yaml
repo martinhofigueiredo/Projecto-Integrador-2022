@@ -2,10 +2,21 @@
 version: '3.1'
 services:
   topside:
+    build:
+      context: ./topside
+      dockerfile: topside.Dockerfile
     image: topside:latest
     networks:
       topside_net:
         ipv4_address: 192.168.2.1
+  roscore:
+    build:
+      context: ./basestation
+      dockerfile: br_overlay.Dockerfile  
+    image: br_overlay:lastest
+    networks:
+      ros_net:
+        ipv4_address: 192.168.2.3
       
        
 networks:
@@ -18,3 +29,5 @@ networks:
       config:
         - subnet: "192.168.2.0/24"
           gateway: "192.168.2.2"
+  ros_net:
+    driver: bridge
