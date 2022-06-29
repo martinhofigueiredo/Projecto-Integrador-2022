@@ -3,6 +3,8 @@
 # Usage Example:
 # ./run_docker.sh turtlebot3_base "roslaunch turtlebot3_gazebo turtlebot3_world.launch"
 
+xhost +
+
 # Define Docker volumes and environment variables
 DOCKER_VOLUMES="
 --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
