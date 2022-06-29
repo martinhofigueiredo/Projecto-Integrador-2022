@@ -40,7 +40,7 @@ RUN pip3 install pymavlink
 
 
 RUN wget https://d176tv9ibo4jno.cloudfront.net/latest/QGroundControl.AppImage
-RUN chmod +x ./QGroundControl.AppImage
+RUN chmod +rwx ./QGroundControl.AppImage
 
 #RUN ./QGroundControl.AppImage --appimage-extract-and-run
 
@@ -51,7 +51,7 @@ EXPOSE 14550
 ENV FCUURL=udp://@192.168.2.2:9000
 
 # Finally the command
-COPY ./topside/entrypoint_topside.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-ENTRYPOINT /entrypoint.sh ${FCUURL}
+COPY ./topside/entrypoint_topside.sh entrypoint.sh
+RUN chmod +rwx entrypoint.sh
+ENTRYPOINT ./entrypoint.sh ${FCUURL}
 

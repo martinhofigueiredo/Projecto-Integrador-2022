@@ -8,14 +8,17 @@ services:
     networks:
       topside_net:
         ipv4_address: 192.168.2.1
+      ros_net:
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
   roscore:
     build:
       dockerfile: ./basestation/br_overlay.Dockerfile  
     image: br_overlay:lastest
     networks:
       ros_net:
-        ipv4_address: 192.168.2.3
-      
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t  
        
 networks:
   topside_net:

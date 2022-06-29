@@ -15,5 +15,5 @@ RUN source /opt/ros/noetic/setup.bash
 
 # Set up the work directory and entrypoint
 WORKDIR /overlay_ws
-COPY ./docker/entrypoint.sh /
-ENTRYPOINT [ "/entrypoint.sh" ]
+COPY ./basestation/entrypoint.sh /
+ENTRYPOINT ./entrypoint.sh
