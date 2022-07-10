@@ -26,9 +26,6 @@ Para atigir os objectivos propostos foram avaliados os requisitos:
 	- Tempo de atraso
 	- Acrescimo de processamento
 
-###  Montagem Fisica
-
-
 
 ### Recolha e Distribuicao de dados de Sensores
 
@@ -37,18 +34,15 @@ De modo interagir com o ROV, foi necessario estudar os protocolos de comunicacao
 
 ### Ambiente Grafico
 
-O ambiente grafico permite traduzir o resultado das medidas efectuadas por todos os sensores numa representacao digital do ambiente em que o ROV se encontra. Este objectivo foi solucionado com a ferramenta Gazebo que e um  simulador 3d para robotica que nos permitiu incluir um  modelo 3d do submarino e da piscina criando assim uma representaccccao do nosso ambiente de teste
+O ambiente grafico permite traduzir o resultado das medidas efectuadas por todos os sensores numa representacao digital do ambiente em que o ROV se encontra. Este objectivo foi solucionado com a ferramenta Gazebo que e um  simulador 3d para robotica que nos permitiu incluir um  modelo 3d do submarino e da piscima criando assim uma representaçao do nosso ambiente de teste. Isto é facilitado pelo facto do Gazebo funcionar como um subscriber do Objecto Disponibilizado pelo ROS
 
-TODO:INSTERTIMAGES
-
-Esta 
+![img1](img1.png)
 
 
 
+## Arquitetura
 
-
-
-
+Como todas estas ferramentas tem que ser executadas em simultaneo, com parametros bem definidos, para que funcionem de maneira interligada, recorremos ao Docker para criar _containers_ que sirvam como blocos fundamentais para montar todo o nosso sistema de controlo. O docker permite nos tambem facilmente transportar o software de PC para PC, facilitando assim a instalação de todo o software necessario
 
 ```mermaid
 graph LR
@@ -68,16 +62,15 @@ graph LR
 		SCRPT[Scripts] <-..-> RE
 	end 
 ```
-Para facilitar os testes neste ambiente de desenvolvimento vamos usar a ferramenta docker para a distribuiçao e instalação da infrastrutura.
 
-Para isso vamos criar 2 containers:
-	- O container para o topside computer, com MAVROS para puder comunicar com o Ros host e passar os dados que recebe atraves da porta ethernet fisica
-	- Um container com o software necessario para:
-		- executar o servidor de ros
-		- front end de gazebo
-		- servidor de VNC na web
 
-Separar assim os serviços necessarios permite nos ter acesso a mais configuraçoes de hardware.
+Para isso criamos 2 containers:
+- O container _topside_, com MAVROS para puder comunicar com o Ros host e passar os dados que recebe atraves da porta ethernet fisica
+- Um container com o software necessario para:
+	- executar _ros engine_
+	- _front end_ de gazebo
+	
+Separar assim os serviços necessarios permite nos ter acesso a mais configuraçoes de hardware no futuro.
 
 ```mermaid
 graph BT 
@@ -99,15 +92,10 @@ graph BT
 	end
 
 ```
-# Docker Setup
+## Aprendizagem e Dificuldades
 
-Following [ref$^1$](https://roboticseabass.com/2021/04/21/docker-and-ros/), our working enviroment will be made of the following docker images:
-- `nvidia_ros` 
-
-
-
-
-
+Uma das dificuldades desta area de trabalho foi aprender todos estas novas ferramentas e garantir que funcionam umas com as outras, como por exemplo garantir que todas a network de containers e serviços estao apontados na direção certa para que possam comunicar.
+Numa outra perspectiva, os resultados desta area de trabalho são dificeis de quantificar, pois trata-se de trabalho de preparação e estruturação do codigo, com alguns melhoramentos na facilidade de desenvolvimento para os outros processos, sendo apenas os resultados qualitativos.  
 
 | |Refs|
 |-|-|
