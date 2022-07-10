@@ -1,0 +1,41 @@
+### COMUNICAÇÃO ###
+
+--->>> Transformada de Huff
+
+USB, Ethernet, RS485
+Message Protocol: Ping Protocol (https://docs.bluerobotics.com/ping-protocol/)
+Message Subsets: common (https://docs.bluerobotics.com/ping-protocol/pingmessage-common/)
+                ,ping360 (https://docs.bluerobotics.com/ping-protocol/pingmessage-ping360/)
+Code Library Implementation: Python (https://github.com/bluerobotics/ping-python)
+
+### ACOUSTICS ###
+
+Freq: 750 Khz (T = 0.0000013 s)
+Beamwidth Horizontal : 2 graus
+Beamwidth Vertical : 25 graus
+Minimum range: 0.75m (1.6mm)
+Maximum range: 50m (4.1cm)
+Range Resolution: 0.08% of range
+Mechanical Resolution: 0.9 graus
+Scanned Sector: Variable up to 360 graus
+Scan Speed: 9 sec/360 graus a 2m
+            35 sec/360 graus a 50m
+
+### PHYSICAL ###
+
+Pressure Rating: 300 metros
+Temperature Range: 0-30 graus celsius
+
+### SONAR ###
+
+O Sonar está posicionado para começar a fazer o varrimento na direção "frontal" do ROV
+No entanto, internamente, ele possui um offset de 180 graus, pelo que ele começa na sample com angulo 200 varre até 399 e volta de 0 a 200
+
+#####################################
+
+
+# https://www.researchgate.net/publication/302072080_PROBABILISTIC_FILTERING_OF_SONAR_DATA
+
+# https://www.geeksforgeeks.org/how-to-plot-a-normal-distribution-with-matplotlib-in-python/
+
+# https://numpy.org/doc/stable/reference/random/generated/numpy.random.normal.html
